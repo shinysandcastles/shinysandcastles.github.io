@@ -4,10 +4,45 @@
 <head>
     <title>Robert Humphrey</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body><p>
-Under Construction
+<body>
+
+<h1>Projects</h1>
+
+<button onclick="showSeniorDesign()">Senior Design</button>
+<button onclick="show3DOF()">3DOF</button>
+<button onclick="show6DOF()">6DOF</button>
+
+<hr>
+
+<div id="project-content">
+    <p>Click a project button.</p>
+</div>
+
+<p>
+  <a href="index.html">Back to Home</a>
 </p>
-  <a href="index.html">Back to Home</a><br>
-  </body>
-</html>
+
+<script>
+function showSeniorDesign() {
+    document.getElementById("project-content").innerHTML = `
+        <h2>Senior Design</h2>
+        <p>Homeland Defense Interceptor aircraft design project completed at Auburn.</p>
+    `;
+}
+
+function show3DOF() {
+    document.getElementById("project-content").innerHTML = `
+        <h2>3DOF Intercept Simulation</h2>
+        <p>Three-degree-of-freedom simulation focused on target intercept dynamics and guidance.</p>
+    `;
+}
+
+function show6DOF() {
+    document.getElementById("project-content").innerHTML = `
+        <h2>6DOF Flight Simulation</h2>
+        <p>Six-degree-of-freedom simulation involving aircraft motion, rotation, and control behavior.</p>
+    `;
+}
+</script>
+
+</body>
