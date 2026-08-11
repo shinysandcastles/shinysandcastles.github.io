@@ -7,6 +7,29 @@
 <p>
 This page is a collection of other projects and miscellaneous items that don't fit into the other categories.
 </p>
-  <a href="index.html">Back to Home</a><br>
-  </body>
+  <div id="project-content">
+    <p>Click a project button.</p>
+</div>
+<button onclick="NASAPOTD()">NASA Photo of the Day</button>
+<p>
+  
+  <a href="index.html">Back to Home</a>
+</p>
+
+
+<script>
+function NASAPOTD() {
+    document.getElementById("project-content").innerHTML = `
+        <h2>NASA Photo of the Day</h2>
+        <p>Loading NASA data....</p>
+      
+         `;
+
+         fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        });
+}
+</script>
 </html>
