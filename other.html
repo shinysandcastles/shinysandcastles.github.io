@@ -26,9 +26,14 @@ function NASAPOTD() {
          `;
 
          fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
+          .then(response => response.json())
+          .then(data => {
+
+            console.log(data);document.getElementById("project-content").innerHTML = `
+            
+        <h2>${data.title}</h2>
+    `;
+
         });
 }
 </script>
