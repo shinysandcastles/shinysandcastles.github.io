@@ -26,28 +26,32 @@
 function showSeniorDesign() {
     document.getElementById("project-content").innerHTML = `
         <h2>Senior Design</h2>
-        <p>Homeland Defense Interceptor aircraft design project completed at Auburn.</p>
+        <p>As part of the 2024–2025 AIAA Undergraduate Aircraft Design Competition, our team developed a conceptual Homeland Defense Interceptor (HDI), a small, high-performance, remotely piloted aircraft designed to provide an affordable solution for defending U.S. airspace. The aircraft was designed to perform defensive counter-air patrol, point-defense interception, and escort missions while meeting demanding performance targets, including a minimum top speed of Mach 1.6, a 200-nautical-mile intercept radius, and four hours of patrol endurance at a 300-nautical-mile radius. The project required our team to balance aerodynamics, propulsion, structures, weapons integration, mission performance, maintainability, and cost, with the final aircraft constrained to a flyaway cost below $25 million for a 1,000-aircraft production run. My primary contribution focused on the aerodynamic design of the aircraft, particularly the selection and development of the airfoil and overall wing design. This work involved evaluating aerodynamic and geometric considerations to develop a wing suitable for the interceptor's high-speed, maneuverability, and mission requirements.
+</p>
     `;
 }
 
 function show3DOF() {
     document.getElementById("project-content").innerHTML = `
         <h2>3DOF Intercept Simulation</h2>
-        <p>Three-degree-of-freedom simulation focused on target intercept dynamics and guidance.</p>
+        <p>For my Aerospace Systems course, I developed a three-degree-of-freedom (3DOF) MATLAB simulation of a ground-launched interceptor missile engaging a ballistic target. The missile and target were modeled as point masses subject to thrust, aerodynamic drag, and gravity within a three-dimensional East-North-Up coordinate system. The simulation incorporated a standard atmosphere model, Mach-dependent aerodynamic coefficients, time-varying thrust and mass, numerical integration of the equations of motion, and simultaneous propagation of the missile and target trajectories. I implemented a guidance system that initially used velocity-pursuit guidance before transitioning to proportional navigation for the terminal intercept. Launch parameters and guidance behavior were evaluated to achieve a successful interception, with miss distance determined from the point of closest approach between the missile and target. The project provided hands-on experience with dynamic system modeling, numerical simulation, guidance algorithms, atmospheric modeling, and analyzing the performance of an interceptor throughout an engagement.
+</p>
     `;
 }
 
 function show6DOF() {
     document.getElementById("project-content").innerHTML = `
         <h2>6DOF Flight Simulation</h2>
-        <p>Six-degree-of-freedom simulation involving aircraft motion, rotation, and control behavior.</p>
+        <p>For my Aircraft Dynamics coursework, I developed a six-degree-of-freedom (6DOF) aircraft simulation in MATLAB to model the complete translational and rotational motion of an aircraft. The simulation propagated a 12-state representation consisting of three-dimensional position, body-axis velocity, roll, pitch, and yaw rates, and the aircraft's Euler orientation angles. The model incorporated aerodynamic lift, drag, and side forces along with pitching, rolling, and yawing moments, aircraft mass properties, atmospheric conditions, and control-surface inputs. I implemented functions for the equations of motion, aerodynamic force and moment calculations, aircraft initialization and trim, control inputs, coordinate transformations, and a standard atmosphere model. The resulting simulation allowed aircraft position, velocity, attitude, angle of attack, sideslip, and control-surface behavior to be evaluated throughout a simulated flight, providing experience with flight dynamics, numerical simulation, coordinate systems, aircraft stability and control, and modular MATLAB development.
+</p>
     `;
 }
 
 function showEagle() {
     document.getElementById("project-content").innerHTML = `
         <h2>Eagle Project</h2>
-        <p>A time capsule to preserve the history of the school.</p>
+        <p>For my Eagle Scout service project, I worked with my local junior high school and former students to create a time capsule commemorating the school's 50th anniversary while preserving an important part of its history. Before becoming a junior high school, the campus had served as an all-Black high school, and I coordinated with graduates of the former school to collect materials documenting their experiences and the history of the community. The time capsule combined these historical materials with objects representing life at the time of the project, including school materials, technology, and items documenting the COVID-19 era. I worked with school officials, alumni, and volunteers to organize the project and preserve these materials for future generations. The completed time capsule is scheduled to be opened in 2040, providing a connection between the school's past, present, and future.
+</p>
     `;
 }
 </script>
