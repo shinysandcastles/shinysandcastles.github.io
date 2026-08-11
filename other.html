@@ -30,8 +30,12 @@ function NASAPOTD() {
           .then(data => {
 
             console.log(data);document.getElementById("project-content").innerHTML = `
-            
+
         <h2>${data.title}</h2>
+        <img src="${data.url}">
+        <p>Date: ${data.date}</p>
+        <p>Image Credit: ${data.copyright}</p>
+        <p>${data.explanation}</p>
     `;
 
         });
