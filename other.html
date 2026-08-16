@@ -12,6 +12,9 @@ This page is a collection of other projects and miscellaneous items that don't f
 </div>
 <button onclick="NASAPOTD()">NASA Photo of the Day</button>
 <p>
+
+<button onclick="CFB()">College Football Ratings</button>
+<p>
   
   <a href="index.html">Back to Home</a>
 </p>
@@ -39,6 +42,14 @@ function NASAPOTD() {
     `;
 
         });
+}
+function CFB() {
+    document.getElementById("project-content").innerHTML = `
+        <h2>College Football Ratings</h2>
+        <p>Loading CFB data....</p>
+      
+         `;
+
 }
 </script>
 </html>
