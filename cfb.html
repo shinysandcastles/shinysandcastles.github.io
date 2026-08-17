@@ -23,9 +23,13 @@ fetch("cfb-data/rankings_2025_week_1.csv")
     .then(response => response.text())
     .then(data => {
         console.log(data);
-
+        
         const rows = data.trim().split("\n");
+
         console.log(rows[1]);
+
+        const columns = rows[1].split(",");
+        console.log(columns);
     });
 </script>
 
