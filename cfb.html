@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CFB Power Rankings</title>
+    <title>College Football Power Rankings</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,106 +10,32 @@
 <h1>College Football Power Rankings</h1>
 
 <p>
-My college football power rankings generated using my own statistical model.
+Welcome to my college football power rankings. These rankings are generated
+using a statistical model I built in Python using College Football Data.
 </p>
 
+<h2>Seasons</h2>
 
-<div class="week-buttons">
-    <button onclick="loadWeek(1)">Week 1</button>
-    <button onclick="loadWeek(2)">Week 2</button>
-    <button onclick="loadWeek(3)">Week 3</button>
-    <button onclick="loadWeek(4)">Week 4</button>
-    <button onclick="loadWeek(5)">Week 5</button>
-    <button onclick="loadWeek(6)">Week 6</button>
-    <button onclick="loadWeek(7)">Week 7</button>
-    <button onclick="loadWeek(8)">Week 8</button>
-    <button onclick="loadWeek(9)">Week 9</button>
-    <button onclick="loadWeek(10)">Week 10</button>
-    <button onclick="loadWeek(11)">Week 11</button>
-    <button onclick="loadWeek(12)">Week 12</button>
-    <button onclick="loadWeek(13)">Week 13</button>
-    <button onclick="loadWeek(14)">Week 14</button>
-    <button onclick="loadWeek(15)">Week 15</button>
-    <button onclick="loadWeek('final')">Final</button>
-</div>
+<p>
+    <a href="cfb-2025.html">2025 Season Rankings</a>
+</p>
 
-<h2 id="week-title">Week 1</h2>
+<h2>History</h2>
 
-<div id="rankings">
-    <p>Loading rankings...</p>
-</div>
+<p>
+    <a href="cfb-champions.html">Past Champions</a>
+</p>
 
+<h2>About the Model</h2>
 
-<script>
+<p>
+The model uses team performance, efficiency, and strength of schedule to
+produce weekly power ratings for FBS teams.
+</p>
 
-function loadWeek(week) {
-
-    let file;
-
-if (week === "final") {
-    file = "cfb-data/2025 data/rankings_2025_final.csv";
-} else {
-    file = `cfb-data/2025 data/rankings_2025_week_${week}.csv`;
-}
-
-fetch(file)
-        .then(response => response.text())
-        .then(data => {
-
-            const rows = data.trim().split("\n");
-
-            let table = `
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Team</th>
-                            <th>Record</th>
-                            <th>Rating</th>
-                            <th>Conference</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-
-            for (let i = 1; i < rows.length; i++) {
-
-                const columns = rows[i].split(",");
-
-                table += `
-                    <tr>
-                        <td>${columns[0]}</td>
-                        <td>${columns[1]}</td>
-                        <td>${columns[2]}</td>
-                        <td>${columns[3]}</td>
-                        <td>${columns[5]}</td>
-                    </tr>
-                `;
-            }
-
-            table += `
-                    </tbody>
-                </table>
-            `;
-
-            document.getElementById("rankings").innerHTML = table;
-
-            if (week === "final") {
-    document.getElementById("week-title").innerHTML = "Final Rankings";
-} else {
-    document.getElementById("week-title").innerHTML = `Week ${week}`;
-}
-        });
-}
-
-loadWeek(1);
-
-</script>
-
-
-
-
-<a href="index.html">Back to Home</a>
+<p>
+    <a href="index.html">Back to Home</a>
+</p>
 
 </body>
 </html>
