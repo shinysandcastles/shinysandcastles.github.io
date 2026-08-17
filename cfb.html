@@ -44,7 +44,15 @@ My college football power rankings generated using my own statistical model.
 
 function loadWeek(week) {
 
-    fetch(`cfb-data/rankings_2025_week_${week}.csv`)
+    let file;
+
+if (week === "final") {
+    file = "cfb-data/rankings_2025_final.csv";
+} else {
+    file = `cfb-data/rankings_2025_week_${week}.csv`;
+}
+
+fetch(file)
         .then(response => response.text())
         .then(data => {
 
@@ -86,7 +94,11 @@ function loadWeek(week) {
 
             document.getElementById("rankings").innerHTML = table;
 
-            document.getElementById("week-title").innerHTML = `Week ${week}`;
+            if (week === "final") {
+    document.getElementById("week-title").innerHTML = "Final Rankings";
+} else {
+    document.getElementById("week-title").innerHTML = `Week ${week}`;
+}
         });
 }
 
