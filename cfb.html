@@ -23,21 +23,42 @@ fetch("cfb-data/rankings_2025_week_1.csv")
     .then(response => response.text())
     .then(data => {
 
-
+        
         const rows = data.trim().split("\n");
 
-        let table = "";
+        let table = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Record</th>
+                        <th>Rating</th>
+                        <th>Conference</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
 
         for (let i = 1; i < rows.length; i++) {
 
             const columns = rows[i].split(",");
 
             table += `
-                <p>
-                    ${columns[0]} | ${columns[1]} | ${columns[2]} | ${columns[3]} | ${columns[5]}
-                </p>
+                <tr>
+                    <td>${columns[0]}</td>
+                    <td>${columns[1]}</td>
+                    <td>${columns[2]}</td>
+                    <td>${columns[3]}</td>
+                    <td>${columns[5]}</td>
+                </tr>
             `;
         }
+
+        table += `
+                </tbody>
+            </table>
+        `;
 
         document.getElementById("rankings").innerHTML = table;
     });
