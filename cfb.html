@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CFB Power Rankings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>College Football Power Rankings</h1>
+
+<p>
+My college football power rankings generated using my own statistical model.
+</p>
+
+
+<div id="rankings">
+    <p>Loading rankings...</p>
+</div>
+
+<script>
+fetch("cfb-data/rankings_2025_week_1.csv")
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    });
+</script>
+
+
+
+
+<a href="index.html">Back to Home</a>
+
+</body>
+</html>
