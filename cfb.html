@@ -22,22 +22,24 @@ My college football power rankings generated using my own statistical model.
 fetch("cfb-data/rankings_2025_week_1.csv")
     .then(response => response.text())
     .then(data => {
-        console.log(data);
+
 
         const rows = data.trim().split("\n");
 
-        console.log(rows[1]);
+        let table = "";
 
-        const columns = rows[1].split(",");
-        console.log(columns);
+        for (let i = 1; i < rows.length; i++) {
 
+            const columns = rows[i].split(",");
 
+            table += `
+                <p>
+                    ${columns[0]} | ${columns[1]} | ${columns[2]} | ${columns[3]} | ${columns[5]}
+                </p>
+            `;
+        }
 
-        document.getElementById("rankings").innerHTML = `
-            <p>
-                ${columns[0]} | ${columns[1]} | ${columns[2]} | ${columns[3]} | ${columns[5]}
-            </p>
-        `;
+        document.getElementById("rankings").innerHTML = table;
     });
 </script>
 
