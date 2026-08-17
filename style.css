@@ -33,3 +33,32 @@ nav a:hover {
 p {
     line-height: 1.5;
 }
+
+
+
+table {
+    width: 100%;
+    max-width: 900px;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #888;
+}
+
+th {
+    background-color: navy;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #d6d6d6;
+}
+
+tr:hover {
+    background-color: #b8b8b8;
+}
