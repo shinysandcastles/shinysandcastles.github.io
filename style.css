@@ -94,7 +94,14 @@ tr:hover {
     font-size: 26px;
     margin: 15px 0;
 }
+.champion-card h3 a {
+    color: black;
+    text-decoration: none;
+}
 
+.champion-card h3 a:hover {
+    text-decoration: underline;
+}
 .champion-card p {
     margin: 12px 0;
 }
