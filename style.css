@@ -1,3 +1,5 @@
+/* Main page styling */
+
 body {
     background-color: #c0c0c0;
     color: black;
@@ -5,6 +7,7 @@ body {
     margin: 40px;
 }
 
+/* Main page titles */
 h1 {
     background-color: navy;
     color: white;
@@ -12,6 +15,7 @@ h1 {
     border: 2px solid black;
 }
 
+/* Main navigation bar */
 nav {
     background-color: #d4d0c8;
     border: 2px solid black;
@@ -24,6 +28,7 @@ nav {
     margin-bottom: 20px;
 }
 
+/* Links inside the main navigation bar */
 nav a {
     background-color: navy;
     color: white;
@@ -34,16 +39,17 @@ nav a {
     border: 2px solid black;
 }
 
+/* Change navigation button when mouse is over it */
 nav a:hover {
     background-color: #0000b8;
 }
 
+/* Paragraph text */
 p {
     line-height: 1.5;
 }
 
-
-
+/* Rankings tables */
 table {
     width: 100%;
     max-width: 900px;
@@ -51,6 +57,7 @@ table {
     margin-top: 20px;
 }
 
+/* All table header and normal cells */
 th,
 td {
     padding: 8px 12px;
@@ -122,5 +129,30 @@ tr:hover {
     text-align: left;
 }
 
+/* Back navigation buttons */
+.back-button {
+    display: inline-block;       /* Allows link to behave more like a button */
+    background-color: #d4d0c8;  /* Light gray background */
+    color: navy;                 /* Navy text */
+    text-decoration: none;       /* Removes normal link underline */
+    font-weight: bold;
 
+    padding: 8px 14px;           /* Space inside button */
+    border: 2px solid navy;      /* Navy outline */
+    margin-top: 10px;            /* Space above button */
+}
+
+.back-button:hover {
+    background-color: navy;      /* Fill button navy when hovered */
+    color: white;                /* Change text to white */
+}
+
+/* About page text box */
+.about-box {
+    background-color: #d4d0c8; /* Light gray background */
+    border: 2px solid black;    /* Black outline */
+    padding: 20px;              /* Space between text and border */
+    margin-top: 20px;           /* Space above the box */
+    max-width: 900px;           /* Keeps text from becoming too wide */
+}
 
