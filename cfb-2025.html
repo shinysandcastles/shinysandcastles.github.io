@@ -39,8 +39,60 @@ My college football power rankings generated using my own statistical model.
     <p>Loading rankings...</p>
 </div>
 
+<button id="show-more-button" onclick="toggleRankings()">
+    Show All Rankings
+</button>
 
 <script>
+let currentRows = [];
+let showingAll = false;
+function buildTable(rows) {
+
+    let table = `
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team</th>
+                    <th>Record</th>
+                    <th>Rating</th>
+                    <th>Conference</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    let limit;
+
+    if (showingAll) {
+        limit = rows.length;
+    } else {
+        limit = Math.min(26, rows.length);
+    }
+
+    for (let i = 1; i < limit; i++) {
+
+        const columns = rows[i].split(",");
+
+        table += `
+            <tr>
+                <td>${columns[0]}</td>
+                <td>${columns[1]}</td>
+                <td>${columns[2]}</td>
+                <td>${columns[3]}</td>
+                <td>${columns[5]}</td>
+            </tr>
+        `;
+    }
+
+    table += `
+            </tbody>
+        </table>
+    `;
+
+    document.getElementById("rankings").innerHTML = table;
+}
+
 
 function loadWeek(week) {
 
@@ -56,43 +108,12 @@ fetch(file)
         .then(response => response.text())
         .then(data => {
 
-            const rows = data.trim().split("\n");
+            currentRows = data.trim().split("\n");
+showingAll = false;
 
-            let table = `
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Team</th>
-                            <th>Record</th>
-                            <th>Rating</th>
-                            <th>Conference</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
+buildTable(currentRows);
 
-            for (let i = 1; i < rows.length; i++) {
-
-                const columns = rows[i].split(",");
-
-                table += `
-                    <tr>
-                        <td>${columns[0]}</td>
-                        <td>${columns[1]}</td>
-                        <td>${columns[2]}</td>
-                        <td>${columns[3]}</td>
-                        <td>${columns[5]}</td>
-                    </tr>
-                `;
-            }
-
-            table += `
-                    </tbody>
-                </table>
-            `;
-
-            document.getElementById("rankings").innerHTML = table;
+document.getElementById("show-more-button").innerHTML = "Show All Rankings";
 
             if (week === "final") {
     document.getElementById("week-title").innerHTML = "Final Rankings";
@@ -101,7 +122,18 @@ fetch(file)
 }
         });
 }
+function toggleRankings() {
 
+    showingAll = !showingAll;
+
+    buildTable(currentRows);
+
+    if (showingAll) {
+        document.getElementById("show-more-button").innerHTML = "Show Top 25";
+    } else {
+        document.getElementById("show-more-button").innerHTML = "Show All Rankings";
+    }
+}
 loadWeek(1);
 
 </script>
