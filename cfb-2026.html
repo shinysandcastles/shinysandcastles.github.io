@@ -8,14 +8,127 @@
 <body>
 
 <h1>College Football Power Rankings</h1>
-
 <p>
-Coming Soon....
+My college football power rankings generated using my own statistical model.
 </p>
 
+
+<div class="week-buttons">
+    <button onclick="loadWeek(1)">Week 1</button>
+</div>
+
+<h2 id="week-title">Week 1</h2>
+
+<div id="rankings">
+    <p>Loading rankings...</p>
+</div>
+
+<button id="show-more-button" onclick="toggleRankings()">
+    Show All Rankings
+</button>
+
+<script>
+let currentRows = [];
+let showingAll = false;
+function buildTable(rows) {
+
+    let table = `
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team</th>
+                    <th>Record</th>
+                    <th>Rating</th>
+                    <th>Conference</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    let limit;
+
+    if (showingAll) {
+        limit = rows.length;
+    } else {
+        limit = Math.min(26, rows.length);
+    }
+
+    for (let i = 1; i < limit; i++) {
+
+        const columns = rows[i].split(",");
+
+        table += `
+            <tr>
+                <td>${columns[0]}</td>
+                <td>${columns[1]}</td>
+                <td>${columns[2]}</td>
+                <td>${columns[3]}</td>
+                <td>${columns[5]}</td>
+            </tr>
+        `;
+    }
+
+    table += `
+            </tbody>
+        </table>
+    `;
+
+    document.getElementById("rankings").innerHTML = table;
+}
+
+
+function loadWeek(week) {
+
+    let file;
+
+if (week === "final") {
+    file = "cfb-data/2025 data/rankings_2025_final.csv";
+} else {
+    file = `cfb-data/2026 data/rankings_2026_week_${week}.csv`;
+}
+
+fetch(file)
+        .then(response => response.text())
+        .then(data => {
+
+            currentRows = data.trim().split("\n");
+showingAll = false;
+
+buildTable(currentRows);
+
+document.getElementById("show-more-button").innerHTML = "Show All Rankings";
+
+            if (week === "final") {
+    document.getElementById("week-title").innerHTML = "Final Rankings";
+} else {
+    document.getElementById("week-title").innerHTML = `Week ${week}`;
+}
+        });
+}
+function toggleRankings() {
+
+    showingAll = !showingAll;
+
+    buildTable(currentRows);
+
+    if (showingAll) {
+        document.getElementById("show-more-button").innerHTML = "Show Top 25";
+    } else {
+        document.getElementById("show-more-button").innerHTML = "Show All Rankings";
+    }
+}
+loadWeek(1);
+
+</script>
 
 <p>
     <a href="cfb.html">Back to College Football Home</a>
 </p>
 
+
+
+<a href="index.html">Back to Home</a>
+
 </body>
+</html>
