@@ -156,3 +156,15 @@ tr:hover {
     max-width: 900px;           /* Keeps text from becoming too wide */
 }
 
+/* Button cool*/
+.cool-button {
+    display: inline-block;
+    background-color: navy;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+    padding: 8px 14px;
+    border: 2px solid black;
+    margin-top: 10px;
+}
